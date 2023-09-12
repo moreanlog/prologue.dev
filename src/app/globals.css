@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html{
+  word-break: break-word;
+}
+
+
+.prose a {
+  @apply transition-all;
+}
+
+code::selection,
+pre::selection,
+span::selection {
+  background-color: #00a8dc42 !important;
+}

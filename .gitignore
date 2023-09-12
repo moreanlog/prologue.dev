@@ -1,0 +1,25 @@
+# vercel
+.vercel
+
+# dependencies
+/node_modules
+
+# testing
+/coverage
+
+# next.js
+/.next/
+
+# contentlayer
+/.contentlayer
+
+# yarn, not using zero-installs
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+.env
