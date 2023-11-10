@@ -4,7 +4,6 @@ tags: ["Photography"]
 pubDate: 2023-6-19
 updatedDate: 2023-8-20
 description: 无意义的废片和后期。
-image: /static/images/author-cover.jpg
 ---
 
 ## 双重曝光

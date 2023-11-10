@@ -1,6 +1,8 @@
 ---
 title: 使用Prophet时间序列预测比特币价格
-tags: ["Python", "Timeseries", "Prophet"]
+tags:
+  - Python
+  - Timeseries
 image: /static/images/bitcoin-forecast-180-0.95.png
 pubDate: 2023-08-15
 description: 使用Prophet替代statsmodels的简单ARIMA，进行时间序列预测和交叉验证

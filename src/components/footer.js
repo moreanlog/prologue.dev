@@ -6,24 +6,20 @@ import sitemetadata, { siteRepo } from "../../data/sitemetadata"
 
 
 export default function Footer() {
-  const feedLinks = [
-    { href: '/rss/feed.xml', label: 'XML' },
-    { href: '/rss/feed.json', label: 'JSON' },
-    { href: '/rss/feed.atom', label: 'Atom' },
-  ]
+
   return (
     <footer>
       <div className="container flex flex-col items-center px-8 py-8 mx-auto sm:flex-row select-none">
         <div className="text-sm text-zinc-500 dark:text-zinc-300">© {moment().format('YYYY')} {sitemetadata.publishName}</div>
         <p className="mt-4 text-sm text-zinc-500 dark:text-zinc-300 sm:ml-4 sm:pl-4 sm:border-l sm:border-zinc-200 sm:mt-0 select-none">
-          Powered by <Link href="https://nextjs.org/">Next.js</Link> and{' '}
-          <Link href="https://vercel.com/">Vercel</Link>
+          Powered by <Link href="https://nextjs.org/" target="_blank">Next.js</Link> and{' '}
+          <Link href="https://vercel.com/" target="_blank">Vercel</Link>
         </p>
 
         <span className="inline-flex justify-center mt-4 space-x-5 sm:ml-auto sm:mt-0 sm:justify-start">
           <span className="text-zinc-400 hover:text-zinc-500 transform duration-400">
             <span className="sr-only">Twitter</span>
-            <Link href={`https://twitter.com/${sitemetadata.twitter}`} aria-label="Twitter" target="_blank" passHref>
+            <Link href={`https://twitter.com/${sitemetadata.twitter}`} aria-label="Twitter" target="_blank" >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
               </svg>
@@ -36,7 +32,7 @@ export default function Footer() {
               href={`https://www.github.com/${sitemetadata.github}/${siteRepo}`}
               aria-label="Github"
               target="_blank"
-              passHref
+              
             >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path
@@ -49,7 +45,7 @@ export default function Footer() {
           </span>
           <span className="text-zinc-400 hover:text-zinc-500 transform duration-400">
             <span className="sr-only">email</span>
-            <Link href= {`mailto:${sitemetadata.email}`} aria-label="Email" target="_blank" passHref>
+            <Link href= {`mailto:${sitemetadata.email}`} aria-label="Email" target="_blank" >
               <svg
                 className="fill-current w-6 h-6"
                 fill="currentColor"
@@ -68,7 +64,7 @@ export default function Footer() {
             </Link>
           </span>
           <span className="text-zinc-400 hover:text-zinc-500 transform duration-400">
-          <Link href="/rss" aria-label="RSS" target="_blank" passHref>
+          <Link href="/rss" aria-label="RSS" target="_blank" >
                 <svg
                   className="fill-current w-6 h-6"
                   fill="currentColor"

@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { allPosts } from "contentlayer/generated";
-import PostCard from "../../../components/postcard";
+import PostsLayout from "../../blog/bloglistlayout";
 
 
 export default async function Tag({ params }) {
@@ -9,24 +9,12 @@ export default async function Tag({ params }) {
   if (!filterPosts || filterPosts == '') {
     notFound();
   }
+
+  const initialDisplayPosts = filterPosts.slice(0, 10)
   return (
     <>
-     <h1 className="prose-2xl font-bold max-w-4xl pt-2 mx-auto"># {slug}</h1>
-      <div className="mx-auto max-w-lg">
-       
-        {filterPosts
-          .filter((post) => post.draft === false)
-          .map((post) => (
-            <article key={post._id} className="">
-              <PostCard
-                title={post.title}
-                slug={post.slug}
-                description={post.description}
-                pubDate={post.pubDate}
-                readingTime={post.readingTime.text}
-              />
-            </article>
-          ))}
+      <div className="mx-auto">
+      <PostsLayout posts={filterPosts} initialDisplayPosts={initialDisplayPosts} /> 
       </div>
     </>
   );

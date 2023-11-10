@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { allPosts } from "contentlayer/generated";
-import Link from "next/link";
+import PostCard from "./postcard";
 
 const data = allPosts
   .filter((post) => post.draft === false)
@@ -12,6 +12,9 @@ const data = allPosts
       description: item.description,
       slug: item.slug,
       content: item.body.raw,
+      readingTime: item.readingTime,
+      tags: item.tags,
+      image: item.image,
     };
   });
 
@@ -46,14 +49,15 @@ const SearchBar = () => {
   const [query, updateQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
+  const getSearchResults = async (query) => {
+    const Fuse = (await import("fuse.js")).default;
+    const response = new Fuse(data, options);
+    const results = response.search(query, { limit: 5 });
+    setSearchResults(results);
+  };
+
   useEffect(() => {
     if (query.length >= 2) {
-      async function getSearchResults(query) {
-        const Fuse = (await import("fuse.js")).default;
-        const response = new Fuse(data, options);
-        const results = await response.search(query, { limit: 5 });
-        setSearchResults(results);
-      }
       getSearchResults(query);
     } else {
       setSearchResults([]);
@@ -89,15 +93,10 @@ const SearchBar = () => {
           <>
             <div className="leading-relaxed py-4 ">
               {searchResults.map((result) => (
-                <div key={result.item.slug} className="py-3">
-                  <Link href={result.item.slug} passHref>
-                    <p className="py-2 text-lg text-zinc-800 dark:text-zinc-200">
-                      {result.item.title}
-                    </p>
-                    <p className="text-zinc-600 dark:text-zinc-400">
-                      {result.item.description}
-                    </p>
-                  </Link>
+              
+
+                <div key={result.item.slug} className="">
+  <PostCard title={result.item.title} slug={result.item.slug} description={result.item.description} pubDate={result.item.pubDate} readingTime={result.item.readingTime.text} tags={result.item.tags} image={result.item.image} />
                 </div>
               ))}
             </div>

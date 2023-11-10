@@ -3,6 +3,7 @@ import { Providers } from "../components/providers";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import siteMetadata from "../../data/sitemetadata";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata = {
   metadataBase: new URL(siteMetadata.siteUrl),
@@ -27,17 +28,13 @@ export const metadata = {
     description: siteMetadata.description,
     url: siteMetadata.siteUrl,
     siteName: siteMetadata.siteName,
-    locale: siteMetadata.language,  
+    locale: siteMetadata.language,
   },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang={siteMetadata.language} suppressHydrationWarning>
-      <head>
-        
-     {process && process.env.NODE_ENV === "production" && process.env.UMAMI_SRC!== null && process.env.UMAMI_ID!== null? <script async defer src={process.env.UMAMI_SRC} data-website-id={process.env.UMAMI_ID}></script>:null}
-      </head>
       <body className="mx-auto bg-white dark:bg-black selection:bg-[#d7ffff] dark:selection:bg-[#006482a2]">
         <Providers>
           <Navbar />
@@ -46,6 +43,7 @@ export default function RootLayout({ children }) {
             <Footer />
           </div>
         </Providers>
+        <Analytics />
       </body>
     </html>
   );

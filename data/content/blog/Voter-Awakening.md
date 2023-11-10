@@ -1,13 +1,13 @@
 ---
 title: 选民的“觉醒”
-tags: [ "Essay"]
+tags: []
 pubDate: 2023-07-27
 description: 取消文化是觉醒资本主义的逻辑。
 ---
 
 ## 序言
 
-去年底我写个篇关于 Blanchard 的[Autogynephilia 自我女性恋](blog/autogynephilia-the-ghost-of-transgender)的文章，这是一个非常有争议的疾病，其复杂性在于男性异装癖等性幻想引起的“因自我认同是女性”而产生的性唤起，不可思议的是其行为表现和先天性 MtF 动机一致，表现出强烈的变性意愿。
+去年底我写个篇关于 Blanchard 的[Autogynephilia 自我女性恋](/blog/autogynephilia-the-ghost-of-transgender)的文章，这是一个非常有争议的疾病，其复杂性在于男性异装癖等性幻想引起的“因自我认同是女性”而产生的性唤起，不可思议的是其行为表现和先天性 MtF 动机一致，表现出强烈的变性意愿。
 
 为什么说反驳 Autogynephilia 都缺乏合法性，在讨论非男性恋 MtF 时，其依据是“性欲倒错是一种性取向”，而不是纯粹的性别烦躁(Gender dysphoria)，另一个例子是女性的被强奸幻想，无法通过是否观测到性幻想本身判断病例，而这种不严谨的推论被用来污名化 MtF，问题在于“引起性唤起的跨性别动机和性幻想”和非男性恋 MtF 的相关性。最迷惑人们的是 AG 的变性行为动机和男性恋 MtF“几乎相同”，无法通过行为主义的研究方法归类。
 

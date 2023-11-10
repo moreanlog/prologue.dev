@@ -1,6 +1,7 @@
 ---
 title: 毕业呓语：对经济学和教育的反思
-tags: ["Essay","Education"]
+tags:
+  - Education
 pubDate: 2023-06-18
 description: 我能和别人说，自己学会了无知和对现实的无能为力吗？
 ---

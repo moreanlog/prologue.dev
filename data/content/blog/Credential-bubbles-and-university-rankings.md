@@ -1,6 +1,7 @@
 ---
 title: 文凭泡沫和大学排名
-tags: ["Education","Essay"]
+tags:
+  - Education
 pubDate: 2023-06-29
 updatedDate: 2023-07-02
 description: 大学排名作为大众媒介重构人们对大学的认知

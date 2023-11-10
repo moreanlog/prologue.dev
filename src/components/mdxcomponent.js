@@ -14,10 +14,17 @@ const ResponsiveImage = (props) => (
   />
 );
 
+const ResponsiveLink = (props) => (
+  <Link
+target="_blank"
+    {...props}
+
+  />
+);
 
 const components = {
   img: ResponsiveImage,
-  a: Link 
+  a: ResponsiveLink
 };
 
 

@@ -1,6 +1,7 @@
 ---
 title: 是谁杀死了互联网：消费者主权和排他性合同
-tags: ["Economics", "Essay"]
+tags:
+  - Economics
 pubDate: 2023-06-09
 description: 隐私的争议演变为意识形态的斗争，美团二选一案揭示市场竞争环境的恶劣。
 ---

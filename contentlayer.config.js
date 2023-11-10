@@ -8,6 +8,10 @@ import readingTime from "reading-time";
 
 /** @type {import('contentlayer/source-files').ComputedFields} */
 const computedFields = {
+  urlslug: {
+    type: "string",
+    resolve: (doc) => `/${doc._raw.flattenedPath}`,
+  },
   slug: {
     type: "string",
     resolve: (doc) => `/${doc._raw.flattenedPath}`.toLowerCase(),
@@ -83,6 +87,11 @@ export const Post = defineDocumentType(() => ({
       default: "",
     },
     draft: {
+      type: "boolean",
+      default: false,
+      required: false,
+    },
+    featured: {
       type: "boolean",
       default: false,
       required: false,

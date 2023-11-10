@@ -1,6 +1,6 @@
 ---
 title: 浅谈效率成瘾
-tags: ["Essay"]
+tags: []
 pubDate: 2023-05-09
 description: 工具理性和路径依赖性，目标导向和效率幻觉
 ---

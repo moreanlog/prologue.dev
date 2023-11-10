@@ -1,7 +1,9 @@
 ---
 title: Autogynephilia 自我女性恋：跨性别的幽灵
+image: /static/images/Estradiol.png
 pubDate: 2022-12-26
-tags: ["LGBT"]
+tags:
+  - LGBT
 description: 对男性没有性取向的性别障碍男性，反而对自己成为女性的想法或形象有性取向。
 ---
 

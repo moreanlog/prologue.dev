@@ -1,6 +1,7 @@
 ---
 title: 房间里的大象：被淡忘的不平等
-tags: ["Economics", "Essay"]
+tags:
+  - Economics
 pubDate: 2022-11-21
 description: 它可能是灰犀牛，但预期是帕累托分布的肥尾效应。
 ---

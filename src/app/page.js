@@ -1,5 +1,5 @@
 import { allPosts } from "contentlayer/generated";
-import { compareDesc, format, parseISO } from "date-fns";
+import { compareDesc } from "date-fns";
 import Link from "next/link";
 import Image from "next/image";
 import siteMetadata from "../../data/sitemetadata";
@@ -22,12 +22,32 @@ export default function Home() {
           {siteMetadata.headerTitle}
         </h1>
         <p className="text-xl">{siteMetadata.description}</p>
+        
       </div>
       <div className="relative lg:grid lg:grid-cols-9 lg:gap-4 pt-12 max-w-6xl">
-        <div className="max-w-xl mx-auto col-span-7">
-          <h2 className="font-semibold py-4 pt-16">Latest Posts</h2>
+        <div className="max-w-2xl mx-auto col-span-7">
+          <h2 className="pt-16 prose-h2 font-semibold">Featured Posts</h2>
+        {posts
+            .filter((post) => post.draft === false && post.featured == true)
+            .slice(0, 5)
+            .map((post) => (
+              <article key={post._id} className="">
+                <div className="leading-relaxed py-4">
+                <PostCard
+                  title={post.title}
+                  slug={post.slug}
+                  description={post.description}
+                  pubDate={post.pubDate}
+                  readingTime={post.readingTime.text}
+                  tags={post.tags}
+                  image={post.image}
+                />
+                </div>
+              </article>
+            ))}
+          <h2 className="font-semibold prose-h2 ">Latest Posts</h2>
           {posts
-            .filter((post) => post.draft === false)
+            .filter((post) => post.draft === false && post.featured !== true)
             .slice(0, 5)
             .map((post) => (
               <article key={post._id} className="">
@@ -38,24 +58,25 @@ export default function Home() {
                   pubDate={post.pubDate}
                   readingTime={post.readingTime.text}
                   tags={post.tags}
+                  image={post.image}
                 />
               </article>
             ))}
           <Link href="/blog" passHref>
-            <p className="text-right text-sm text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 hover:underline transition duration-400">
+            <p className="text-right text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:underline transition duration-400">
               Read More →
             </p>
           </Link>
         </div>
-        <div className="col-span-2 max-w-lg mx-auto  ">
+        <div className="col-span-2 max-w-lg mx-auto">
           <div className="sticky top-0 pt-12">
-          <h2 className="font-semibold py-4">About Author</h2>
+          <h2 className="font-semibold prose-h2 mt-6">About Author</h2>
           <Image
             src="/static/favicons/avatar.png"
             alt="Avatar"
             width="100"
             height="100"
-            className="rounded-full max-w-md mx-auto shadow drop-shadow mt-4"
+            className="rounded-full max-w-md mx-auto shadow-md drop-shadow-md mt-4"
           />
           <p className="prose-lg text-center pt-4">{siteMetadata.author}</p>
 
@@ -72,7 +93,7 @@ export default function Home() {
           </div>
           <p className="py-4 text-center mx-auto">{siteMetadata.authorDesc}</p>
           <Link href="/about" passHref>
-            <p className="text-right text-sm pt-2 text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 hover:underline transition duration-400">
+            <p className="text-right text-sm pt-2 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:underline transition duration-400">
               About More →
             </p>
           </Link>

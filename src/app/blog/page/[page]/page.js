@@ -2,7 +2,7 @@ import { allPosts } from "contentlayer/generated"
 import PostsLayout from "../../bloglistlayout"
 import { compareDesc } from 'date-fns'
 
-const POSTS_PER_PAGE = 10
+const POSTS_PER_PAGE = 5
 
 export async function generateStaticParams() {
   const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE)

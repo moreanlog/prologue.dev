@@ -5,9 +5,9 @@ description: 但愿十年后的某天，这些链接仍存活，与各位作者�
 
 ## 友链
 
-[Rercel](https://rercel.com/) - 哲学片段与学术之路。
+[pathos page](https://pathos.page/) - 哲学片段与学术之路。
 
-[yihtseu](https://blog.yizhou.info/) - 博学之，审问之，慎思之，明辨之，笃行之。
+[停云馆](https://blog.yizhou.ac.cn/) - 博学之，审问之，慎思之，明辨之，笃行之。
 
 [积薪](https://firewood.news/) - 依然相信文字的力量。
 
