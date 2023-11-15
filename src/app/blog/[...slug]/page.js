@@ -124,7 +124,7 @@ export default async function PostPage({ params }) {
       </section>
       <div className="relative xl:grid xl:grid-cols-8 gap-8 mx-auto max-w-7xl">
         <div className="col-span-6">
-          <article className="py-8 prose mx-auto dark:prose-invert max-w-2xl">
+          <article className="py-8 prose mx-auto dark:prose-invert max-w-3xl">
             <div className="prose-sm select-none">
               <time>{moment(post.pubDate).format("LL")}</time> ·{" "}
               {post.readingTime.words} words ·  {post.readingTime.text}
@@ -145,9 +145,14 @@ export default async function PostPage({ params }) {
               {post.updatedDate ? `Last Updated: ${moment(post.updatedDate).format("LL")}` : null}
             </p>
             <hr />
+
             <Comments />
           </article>
-          <div className="justify-between flex flex-nowrap gap-8 py-8 leading-relaxed">
+          <Link href={`https://github.com/${siteMetadata.github}/${siteMetadata.siteRepo}/blob/master/data/content${post.urlslug}.md`} target="_blank">
+            <p className="text-right py-2 text-sm  text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-200 transition duration-400">
+              View on Github</p>
+          </Link>
+          <div className="justify-between flex gap-8 py-8 leading-relaxed">
             {adjacentPosts.previousPostTitle !== null && typeof (adjacentPosts.previousPostTitle) !== "undefined" ? <div>
               <p className="prose dark:prose-invert text-left">Previous Post</p>
               <Link href={`/blog/${adjacentPosts.previousPostSlug}`} className="text-zinc-600 dark:text-zinc-300 hover:text-zinc-800 dark:hover:text-zinc-100 hover:underline transition duration-400">
@@ -155,9 +160,8 @@ export default async function PostPage({ params }) {
               </Link>
             </div> : null}
 
-
-            {adjacentPosts.nextPostTitle !== null && typeof (adjacentPosts.nextPostTitle) !== "undefined" ? <div>        <p className="text-right prose dark:prose-invert">Next Post</p>
-              <Link href={`/blog/${adjacentPosts.nextPostSlug}`} className="text-right text-zinc-600 dark:text-zinc-300 hover:text-zinc-800 dark:hover:text-zinc-100 hover:underline transition duration-400">
+            {adjacentPosts.nextPostTitle !== null && typeof (adjacentPosts.nextPostTitle) !== "undefined" ? <div>        <p className="prose dark:prose-invert">Next Post</p>
+              <Link href={`/blog/${adjacentPosts.nextPostSlug}`} className=" text-zinc-600 dark:text-zinc-300 hover:text-zinc-800 dark:hover:text-zinc-100 hover:underline transition duration-400">
                 {adjacentPosts.nextPostTitle}
               </Link></div> : null}
 
@@ -215,13 +219,9 @@ export default async function PostPage({ params }) {
                 CC BY-NC-SA 4.0
               </p>
 
-              
+
             </Link>
 
-            <Link href={`https://github.com/${siteMetadata.github}/${siteMetadata.siteRepo}/blob/master/data/content${post.urlslug}.md`} target="_blank">
-            <p className="py-2 text-sm text-right sm:text-left text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-200 transition duration-400">
-              View on Github</p>
-</Link>
 
             <Link href="/">
               <p className="py-2 text-sm text-right sm:text-left text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-200 transition duration-400">
