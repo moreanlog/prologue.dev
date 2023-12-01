@@ -35,7 +35,7 @@ export async function generateMetadata({
     openGraph: {
       title: page.title + " - " + siteMetadata.publishName,
       description: page.description,
-      url: siteMetadata.siteUrl + "/" + page.slugAsParams,
+      url: "/" + page.slugAsParams,
       siteName: siteMetadata.siteName,
       images: [
         {

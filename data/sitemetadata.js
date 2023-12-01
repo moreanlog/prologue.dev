@@ -6,7 +6,7 @@ const siteMetadata = {
   headerTitle: "What's past is prologue",
   description:
     "对当下的反思和批判",
-  language: "zh",
+  language: "zh-cn",
   keywords:['prologue', '序章'],
   siteUrl: "https://prologue.dev",
   siteRepo: "prologue.dev",
@@ -15,7 +15,7 @@ const siteMetadata = {
   siteLogo: "/static/favicons/favicon.ico",
   image: "/static/images/avatar.png",
   cover: "/static/favicons/cover.png",
-  email: "prologue@outlook.sg",
+  email: "prologue.dev@protonmail.com",
   github: "hxlog",
   twitter: "@huaixuOvO",
   twitterid:"1507965040603074564",

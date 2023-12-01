@@ -14,8 +14,6 @@ export async function GET() {
     image_url: `${siteMetadata.siteUrl}${siteMetadata.cover}`,
     docs: siteMetadata.siteUrl,
     language: siteMetadata.language,
-    managingEditor: siteMetadata.author,
-    webMaster: siteMetadata.author,
     copyright:'CC BY-NC-SA 4.0'
   });
 
@@ -28,11 +26,6 @@ export async function GET() {
       guid: `${siteMetadata.siteUrl}${post.slug}`,
       date: post.pubDate,
       categories:post.tags,
-      enclosure:{
-        'url'  : [post.image == ""
-        ? null
-        :siteMetadata.siteUrl+post.image],
-      }
     });
   });
 

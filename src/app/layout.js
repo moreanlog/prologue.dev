@@ -12,7 +12,7 @@ export const metadata = {
   referrer: "origin-when-cross-origin",
   keywords: siteMetadata.keywords,
   authors: [
-    { name: siteMetadata.author, url: siteMetadata.siteUrl + "/about" },
+    { name: siteMetadata.author, url: "/about" },
   ],
   creator: siteMetadata.author,
   publisher: siteMetadata.publishName,

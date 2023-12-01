@@ -76,7 +76,7 @@ export default function Home() {
             alt="Avatar"
             width="100"
             height="100"
-            className="rounded-full max-w-md mx-auto shadow-md drop-shadow-md mt-4"
+            className="rounded-full max-w-md mx-auto shadow-md drop-shadow-md mt-6"
           />
           <p className="prose-lg text-center pt-4">{siteMetadata.author}</p>
 

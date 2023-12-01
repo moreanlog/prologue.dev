@@ -22,13 +22,17 @@ async function getPostFromParams(params) {
 }
 
 async function getAdjacentPosts(post) {
-  const sortedPosts = allPosts
-    .sort((a, b) => new Date(a.pubDate) - new Date(b.pubDate));
+  const sortedPosts = allPosts.sort(
+    (a, b) => new Date(a.pubDate) - new Date(b.pubDate)
+  );
 
-  const currentIndex = sortedPosts.findIndex(p => p === post);
+  const currentIndex = sortedPosts.findIndex((p) => p === post);
 
   const previousPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : null;
-  const nextPost = currentIndex < sortedPosts.length - 1 ? sortedPosts[currentIndex + 1] : null;
+  const nextPost =
+    currentIndex < sortedPosts.length - 1
+      ? sortedPosts[currentIndex + 1]
+      : null;
 
   const result = {};
 
@@ -45,7 +49,6 @@ async function getAdjacentPosts(post) {
   return result;
 }
 
-
 export async function generateMetadata({ params }) {
   const post = await getPostFromParams(params);
 
@@ -57,13 +60,13 @@ export async function generateMetadata({ params }) {
     title: post.title + " - " + siteMetadata.publishName,
     description: post.description,
     openGraph: {
-      url: `${siteMetadata.siteUrl}/blog/${post.slugAsParams}`,
+      url: `/blog/${post.slugAsParams}`,
       title: post.title + " - " + siteMetadata.publishName,
       description: post.description,
       type: "article",
       images: [
         post.image == ""
-          ? { url: `${siteMetadata.siteUrl}/og?title=${post.title}` }
+          ? { url: `/og?title=${post.title}` }
           : { url: post.image },
       ],
     },
@@ -74,7 +77,11 @@ export async function generateMetadata({ params }) {
       creator: siteMetadata.twitter,
       siteId: siteMetadata.twitterid,
       creatorId: siteMetadata.twitterid,
-      images: [post.image === null ? `${siteMetadata.siteUrl}/og?title=${post.title}` : post.image],
+      images: [
+        post.image === null
+          ? `/og?title=${post.title}`
+          : post.image,
+      ],
     },
   };
 }
@@ -100,17 +107,18 @@ export default async function PostPage({ params }) {
     "@context": "https://schema.org",
     "@type": "Article",
     datePublished: post.pubDate,
+    dateModified: post.updatedDate,
     headline: post.title,
     image:
-      post.image === ""
-        ? [`${siteMetadata.siteUrl}/og?title=${post.title}`]
-        : [post.image, `${siteMetadata.siteUrl}/og?title=${post.title}`],
+      post.image == ""
+        ? [`/og?title=${post.title}`]
+        : [post.image, `/og?title=${post.title}`],
     description: post.description,
     author: [
       {
         "@type": "Person",
         name: `${siteMetadata.author}`,
-        url: `${siteMetadata.siteUrl}/about`,
+        url: `/about`,
       },
     ],
   };
@@ -127,11 +135,31 @@ export default async function PostPage({ params }) {
           <article className="py-8 prose mx-auto dark:prose-invert max-w-3xl">
             <div className="prose-sm select-none">
               <time>{moment(post.pubDate).format("LL")}</time> ·{" "}
-              {post.readingTime.words} words ·  {post.readingTime.text}
-              {post.tags == "" || null ? null : post.tags.map(tag => <Link href={`/tags/${tag}`} key={tag} className="px-1 text-zinc-600 dark:text-zinc-300 hover:text-zinc-800 dark:hover:text-zinc-100 no-underline font-normal"> {`${tag}`}</Link>)}
+              {post.readingTime.words} words · {post.readingTime.text}
+              {post.tags == "" || null
+                ? null
+                : post.tags.map((tag) => (
+                    <Link
+                      href={`/tags/${tag}`}
+                      key={tag}
+                      className="px-1 text-zinc-600 dark:text-zinc-300 hover:text-zinc-800 dark:hover:text-zinc-100 no-underline font-normal"
+                    >
+                      {" "}
+                      {`${tag}`}
+                    </Link>
+                  ))}
             </div>
             <h1 className="mb-2 py-4 leading-relaxed">{post.title}</h1>
-            {post.image != "" ? <Image src={post.image} width={1600} height={400} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" alt={"featured image " + post.title} className="inset-0 rounded-xl ring-1 ring-inset ring-zinc-900/10 my-2 drop-shadow-sm shadow-sm" /> : null}
+            {post.image != "" ? (
+              <Image
+                src={post.image}
+                width={1600}
+                height={400}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                alt={"featured image " + post.title}
+                className="inset-0 rounded-xl ring-1 ring-inset ring-zinc-900/10 my-2 drop-shadow-sm shadow-sm"
+              />
+            ) : null}
 
             {post.description && (
               <p className="mt-4 text-slate-700 dark:text-slate-200">
@@ -141,57 +169,83 @@ export default async function PostPage({ params }) {
             <hr className="py-2 pt-2" />
             <MDXComponent code={post.body.code} />
             <p className="prose-sm">
-
-              {post.updatedDate ? `Last Updated: ${moment(post.updatedDate).format("LL")}` : null}
+              {post.updatedDate
+                ? `Last Updated: ${moment(post.updatedDate).format("LL")}`
+                : null}
             </p>
             <hr />
 
             <Comments />
           </article>
-          <Link href={`https://github.com/${siteMetadata.github}/${siteMetadata.siteRepo}/blob/master/data/content${post.urlslug}.md`} target="_blank">
+          <Link
+            href={`https://github.com/${siteMetadata.github}/${siteMetadata.siteRepo}/blob/master/data/content${post.urlslug}.md`}
+            target="_blank"
+          >
             <p className="text-right py-2 text-sm  text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-200 transition duration-400">
-              View on Github</p>
+              View on Github
+            </p>
           </Link>
           <div className="justify-between flex gap-8 py-8 leading-relaxed">
-            {adjacentPosts.previousPostTitle !== null && typeof (adjacentPosts.previousPostTitle) !== "undefined" ? <div>
-              <p className="prose dark:prose-invert text-left">Previous Post</p>
-              <Link href={`/blog/${adjacentPosts.previousPostSlug}`} className="text-zinc-600 dark:text-zinc-300 hover:text-zinc-800 dark:hover:text-zinc-100 hover:underline transition duration-400">
-                {adjacentPosts.previousPostTitle}
-              </Link>
-            </div> : null}
+            {adjacentPosts.previousPostTitle !== null &&
+            typeof adjacentPosts.previousPostTitle !== "undefined" ? (
+              <div>
+                <p className="prose dark:prose-invert text-left">
+                  Previous Post
+                </p>
+                <Link
+                  href={`/blog/${adjacentPosts.previousPostSlug}`}
+                  className="text-zinc-600 dark:text-zinc-300 hover:text-zinc-800 dark:hover:text-zinc-100 hover:underline transition duration-400"
+                >
+                  {adjacentPosts.previousPostTitle}
+                </Link>
+              </div>
+            ) : null}
 
-            {adjacentPosts.nextPostTitle !== null && typeof (adjacentPosts.nextPostTitle) !== "undefined" ? <div>        <p className="prose dark:prose-invert">Next Post</p>
-              <Link href={`/blog/${adjacentPosts.nextPostSlug}`} className=" text-zinc-600 dark:text-zinc-300 hover:text-zinc-800 dark:hover:text-zinc-100 hover:underline transition duration-400">
-                {adjacentPosts.nextPostTitle}
-              </Link></div> : null}
-
-
+            {adjacentPosts.nextPostTitle !== null &&
+            typeof adjacentPosts.nextPostTitle !== "undefined" ? (
+              <div>
+                {" "}
+                <p className="prose dark:prose-invert">Next Post</p>
+                <Link
+                  href={`/blog/${adjacentPosts.nextPostSlug}`}
+                  className=" text-zinc-600 dark:text-zinc-300 hover:text-zinc-800 dark:hover:text-zinc-100 hover:underline transition duration-400"
+                >
+                  {adjacentPosts.nextPostTitle}
+                </Link>
+              </div>
+            ) : null}
           </div>
         </div>
         <div className="col-span-2 mx-auto select-none">
           <div>
-            <h2 className="text-zinc-600 dark:text-zinc-300 py-6">About Author</h2>
+            <h2 className="font-semibold prose-h2 mt-6">About Author</h2>
             <Image
               src="/static/favicons/avatar.png"
               alt="Avatar"
               width="100"
               height="100"
-              className="rounded-full max-w-md mx-auto shadow-md drop-shadow-md mt-4"
+              className="rounded-full max-w-md mx-auto shadow-md drop-shadow-md mt-6"
             />
             <p className="prose-lg text-center pt-4">{siteMetadata.author}</p>
 
             <div className="grid grid-cols-2 divide-x dark:divide-zinc-700 py-4 mx-auto">
               <div className="grid grid-rows-2  text-center px-2">
                 {postsNum}
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 pt-1">Posts</p>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 pt-1">
+                  Posts
+                </p>
               </div>
 
               <div className="grid grid-rows-2  text-center px-2">
                 {totalWords}
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 pt-1">Words</p>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 pt-1">
+                  Words
+                </p>
               </div>
             </div>
-            <p className="py-4 text-center mx-auto">{siteMetadata.authorDesc}</p>
+            <p className="py-4 text-center mx-auto">
+              {siteMetadata.authorDesc}
+            </p>
             <Link href="/about" passHref>
               <p className="text-right text-sm pt-2 text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 hover:underline transition duration-400">
                 About More →
@@ -218,10 +272,7 @@ export default async function PostPage({ params }) {
               <p className="mt-12 py-2 text-sm text-right sm:text-left text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-200 transition duration-400">
                 CC BY-NC-SA 4.0
               </p>
-
-
             </Link>
-
 
             <Link href="/">
               <p className="py-2 text-sm text-right sm:text-left text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-200 transition duration-400">

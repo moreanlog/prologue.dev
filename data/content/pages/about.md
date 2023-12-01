@@ -18,6 +18,8 @@ className="rounded-full max-w-md mx-auto shadow drop-shadow"
 
 斜杠 Slash 是我无法摆脱的特征，这也是为何建此站的缘故，我不希望有人看到我的个人网站误认为我是一名不靠谱的金融从业人士，尽管它确实存在这样的可能性，言语间轻则称“市场总是错的”，重则末日预言（可恨的 FUD），透露的是风险不确定性和社会分裂，隐喻是全球化失控、后政治、后真相、怀疑论...这些在现实中不受待见的论点，将与现实身份分割记录在此。
 
+至于名字，是某年四月开始在微信公众号上入门自媒体，化名槐序。
+
 <img src="/static/images/author-cover.jpg"  width="1920"
   height="1080" className="rounded-lg">
 </img>

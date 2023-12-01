@@ -11,7 +11,14 @@ module.exports = {
       typography: {
         DEFAULT: {
         css: {
-        lineHeight: '2rem'
+        lineHeight: '2rem',
+        a: {
+          textDecoration: 'none',
+          '&:hover': {
+            color: 'gray.700',
+            textDecoration: 'underline',
+          },
+        },
         } 
       }
     }

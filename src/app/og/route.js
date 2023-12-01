@@ -15,7 +15,7 @@ export async function GET(request) {
   return new ImageResponse(
     (
       <div tw="flex w-full h-full flex-col bg-[#09090b] text-white p-[80px]">
-        <div tw="flex flex-col w-full pt-[40px]">
+        <div tw="flex flex-col w-full pt-[40px] px-8">
           <div tw={`flex w-full h-full ml-4`}>
             <div
               style={{
@@ -32,7 +32,7 @@ export async function GET(request) {
             </div>
           </div>
         </div>
-        <div tw="flex items-center justify-between w-full mt-auto">
+        <div tw="flex items-center justify-between w-full mt-auto px-8">
           <div tw="flex items-center">
             <svg
               viewBox="0 0 24 24"
