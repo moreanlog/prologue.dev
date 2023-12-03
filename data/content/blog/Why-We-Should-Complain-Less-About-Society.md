@@ -1,8 +1,9 @@
 ---
 title: 为什么应该少抱怨社会
 image: /static/images/What-If-The-World.jpg
+imageDesc: 我们必须接受短暂的失望，但不能放弃拥有无限的希望。
 pubDate: 2023-11-07
-description: 悲观者正确，乐观者成功
+description: 悲观者正确，乐观者成功。
 featured: true
 ---
 

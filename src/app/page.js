@@ -71,27 +71,38 @@ export default function Home() {
         <div className="col-span-2 max-w-lg mx-auto">
           <div className="sticky top-0 pt-12">
           <h2 className="font-semibold prose-h2 mt-6">About Author</h2>
-          <Image
-            src="/static/favicons/avatar.png"
-            alt="Avatar"
-            width="100"
-            height="100"
-            className="rounded-full max-w-md mx-auto shadow-md drop-shadow-md mt-6"
-          />
-          <p className="prose-lg text-center pt-4">{siteMetadata.author}</p>
+          <Link href="/about">
+            <Image
+              src="/static/favicons/avatar.png"
+              alt="Avatar"
+              width="100"
+              height="100"
+              className="rounded-full max-w-md mx-auto shadow drop-shadow mt-6  hover:shadow-lg hover:ring-2 hover:ring-zinc-400 dark:ring-zinc-700 transition transform duration-500"
+            />
+            </Link>
+            <p className="prose-lg text-center pt-4">{siteMetadata.author}</p>
 
-          <div className="grid grid-cols-2 divide-x dark:divide-zinc-700 py-4 mx-auto">
-            <div className="grid grid-rows-2  text-center px-2">
-              {postsNum}
-              <p className="text-sm text-zinc-600 dark:text-zinc-400 pt-1">Posts</p>
-            </div>
+<div className="grid grid-cols-2 divide-x dark:divide-zinc-700 py-4 mx-auto">
+  <div className="grid grid-rows-2  text-center px-2">
+    <Link href="/blog" className="hover:underline hover:underline-offset-2">
+    {postsNum}
+    </Link>
+    <p className="text-sm text-zinc-600 dark:text-zinc-400 pt-1">
+      Posts
+    </p>
+    
+  </div>
 
-            <div className="grid grid-rows-2  text-center px-2">
-              {totalWords}
-              <p className="text-sm text-zinc-600 dark:text-zinc-400 pt-1">Words</p>
-            </div>
-          </div>
-          <p className="py-4 text-center mx-auto">{siteMetadata.authorDesc}</p>
+  <div className="grid grid-rows-2  text-center px-2">
+    {totalWords}
+    <p className="text-sm text-zinc-600 dark:text-zinc-400 pt-1">
+      Words
+    </p>
+  </div>
+</div>
+<p className="py-4 text-center mx-auto prose-p">
+  {siteMetadata.authorDesc}
+</p>
           <Link href="/about" passHref>
             <p className="text-right text-sm pt-2 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:underline transition duration-400">
               About More →

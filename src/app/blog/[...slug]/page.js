@@ -10,6 +10,7 @@ import Link from "next/link";
 import moment from "moment";
 import Image from "next/image";
 
+
 async function getPostFromParams(params) {
   const slug = params?.slug?.join("/");
   const post = allPosts.find((post) => post.slugAsParams === slug);
@@ -149,7 +150,12 @@ export default async function PostPage({ params }) {
                     </Link>
                   ))}
             </div>
-            <h1 className="mb-2 py-4 leading-relaxed">{post.title}</h1>
+            <h1 className="pt-6 leading-relaxed">{post.title}</h1>
+            {post.description && (
+              <p className="text-zinc-700 dark:text-zinc-300 pb-4">
+                {post.description}
+              </p>
+            )}
             {post.image != "" ? (
               <Image
                 src={post.image}
@@ -160,13 +166,9 @@ export default async function PostPage({ params }) {
                 className="inset-0 rounded-xl ring-1 ring-inset ring-zinc-900/10 my-2 drop-shadow-sm shadow-sm"
               />
             ) : null}
+            {post.imageDesc != "" ? <p className="text-zinc-500 dark:text-zinc-300">{post.imageDesc}</p>: null}
 
-            {post.description && (
-              <p className="mt-4 text-slate-700 dark:text-slate-200">
-                {post.description}
-              </p>
-            )}
-            <hr className="py-2 pt-2" />
+            <hr/>
             <MDXComponent code={post.body.code} />
             <p className="prose-sm">
               {post.updatedDate
@@ -216,24 +218,29 @@ export default async function PostPage({ params }) {
             ) : null}
           </div>
         </div>
-        <div className="col-span-2 mx-auto select-none">
+        <div className="col-span-2 mx-auto">
           <div>
             <h2 className="font-semibold prose-h2 mt-6">About Author</h2>
+            <Link href="/about">
             <Image
               src="/static/favicons/avatar.png"
               alt="Avatar"
               width="100"
               height="100"
-              className="rounded-full max-w-md mx-auto shadow-md drop-shadow-md mt-6"
+              className="rounded-full max-w-md mx-auto shadow drop-shadow mt-6  hover:shadow-lg hover:ring-2 hover:ring-zinc-400 dark:ring-zinc-700 transition transform duration-500"
             />
+            </Link>
             <p className="prose-lg text-center pt-4">{siteMetadata.author}</p>
 
             <div className="grid grid-cols-2 divide-x dark:divide-zinc-700 py-4 mx-auto">
               <div className="grid grid-rows-2  text-center px-2">
+                <Link href="/blog" className="hover:underline hover:underline-offset-2">
                 {postsNum}
+                </Link>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 pt-1">
                   Posts
                 </p>
+                
               </div>
 
               <div className="grid grid-rows-2  text-center px-2">
@@ -243,7 +250,7 @@ export default async function PostPage({ params }) {
                 </p>
               </div>
             </div>
-            <p className="py-4 text-center mx-auto">
+            <p className="py-4 text-center mx-auto prose-p">
               {siteMetadata.authorDesc}
             </p>
             <Link href="/about" passHref>

@@ -36,7 +36,7 @@ export default function Navbar() {
                 href={link.href}
                 className={`rounded-lg px-3 py-2 font-normal  hover:bg-zinc-50 hover:text-cyan-500 dark:hover:bg-slate-800 transition trasnform duration-400 select-none ${
                   pathname == link.href
-                    ? "text-cyan-500 "
+                    ? "text-cyan-500 font-semibold"
                     : "text-zinc-500 dark:text-zinc-300"
                 }`}
               >

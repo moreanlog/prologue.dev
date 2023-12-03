@@ -30,7 +30,7 @@ const PostsLayout = ({ pagination, initialDisplayPosts }) => {
         <div className="lg:grid lg:grid-cols-6">
 
           <div className="max-w-lg mx-auto lg:col-span-2">
-            <div className="sticky top-0 pt-8">
+            <div className="sticky top-0 py-4 lg:pt-14">
               {sortedTags.map((tag) => (
 
                 <Link key={tag} className={`inline-flex lg:block rounded-lg px-3 py-2 font-normal hover:bg-zinc-50 hover:text-cyan-500 dark:hover:bg-slate-800 transition trasnform duration-400 select-none ${pathname == "/tags/" + tag ? "text-cyan-500 " : "text-zinc-500 dark:text-zinc-300"}`} href={`/tags/${tag}`}>

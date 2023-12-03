@@ -39,7 +39,7 @@ const MobileNav = () => {
         leaveTo="transform opacity-0 scale-95"
       >
         <Menu.Items className="absolute rounded-md bg-white dark:bg-zinc-800 shadow-lg z-50">
-          <div className="py-1 px-3 divide-y text-center divide-zinc-50 dark:divide-zinc-700">
+          <div className="py-1 px-3 divide-y divide-zinc-50 dark:divide-zinc-700">
             {headerNavLinks.map((link) => {
               return (
                 <div key={link.title} className="py-2">

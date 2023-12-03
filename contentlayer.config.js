@@ -106,6 +106,10 @@ export const Post = defineDocumentType(() => ({
       default: [],
       of: { type: "string" },
     },
+    imageDesc: {
+      type: "string",
+      default: "",
+    },
   },
   computedFields,
 }));

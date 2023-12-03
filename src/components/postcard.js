@@ -21,7 +21,7 @@ export default function PostCard({
               className="py-4 hover:text-zinc-800 dark:hover:text-zinc-200"
               href={`/tags/${tag}`}
             >
-              <span className="hover:bg-zinc-100 rounded-md px-1 py-1 transition duration-500">
+              <span className="hover:bg-zinc-100 rounded-md px-1 py-1 transition duration-500 dark:hover:bg-zinc-800">
                 {tag}
               </span>
             </Link>
