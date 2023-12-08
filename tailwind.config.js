@@ -21,6 +21,11 @@ module.exports = {
             textDecoration: 'underline',
           },
         },
+        code: {
+          color: theme('colors.pink.500'),
+          paddingLeft: '4px',
+          paddingRight: '4px',
+        },
         } 
       },
       invert: {

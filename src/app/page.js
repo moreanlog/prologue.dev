@@ -27,12 +27,13 @@ export default function Home() {
       <div className="relative lg:grid lg:grid-cols-9 lg:gap-4 pt-12 max-w-6xl">
         <div className="max-w-2xl mx-auto col-span-7">
           <h2 className="pt-16 prose-h2 font-semibold">Featured Posts</h2>
+          <div className="py-4 mb-2">
         {posts
             .filter((post) => post.draft === false && post.featured == true)
             .slice(0, 5)
             .map((post) => (
               <article key={post._id} className="">
-                <div className="leading-relaxed py-4">
+                <div className="leading-relaxed">
                 <PostCard
                   title={post.title}
                   slug={post.slug}
@@ -45,6 +46,7 @@ export default function Home() {
                 </div>
               </article>
             ))}
+            </div>
           <h2 className="font-semibold prose-h2 ">Latest Posts</h2>
           {posts
             .filter((post) => post.draft === false && post.featured !== true)

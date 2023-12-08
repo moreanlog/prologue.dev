@@ -2,7 +2,6 @@ import { notFound } from "next/navigation";
 import { allPosts } from "contentlayer/generated";
 import PostsLayout from "../../blog/bloglistlayout";
 
-
 export default async function Tag({ params }) {
   const slug = params?.slug?.join("/");
   const filterPosts = allPosts.filter((post) => post.tags.includes(slug));

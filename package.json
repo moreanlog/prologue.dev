@@ -12,6 +12,7 @@
     "@giscus/react": "^2.3.0",
     "@headlessui/react": "^1.7.17",
     "@vercel/analytics": "^1.0.2",
+    "@vercel/speed-insights": "^1.0.0",
     "autoprefixer": "^10.4.16",
     "contentlayer": "^0.3.4",
     "date-fns": "^2.30.0",

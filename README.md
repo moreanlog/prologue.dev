@@ -44,6 +44,7 @@ pubDate: 2022-11-13
 (required)
 
 updatedDate: 2023-07-02
+featured: true
 tags: ["tag1",tag2]
 image: /static/photos/06.jpg 
 imageDesc: This is a static file
@@ -61,4 +62,4 @@ description: description
 
 ### 待完善
 
-- [] `categories`类别
+- 文章的`categories`类别
