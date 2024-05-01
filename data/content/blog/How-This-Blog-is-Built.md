@@ -1,7 +1,6 @@
 ---
 title: 这个博客是如何搭建的
-featured: true
-pubDate: 2023-12-09
+publishDate: 2023-12-09
 description: 记录作者搭建博客的过程和心得，建议博客应以内容为中心，结构化文本处理。
 ---
 
@@ -13,17 +12,13 @@ description: 记录作者搭建博客的过程和心得，建议博客应以内�
 
 ## 博客模板
 
-![首页截图](/static/images/Index-Screenshot.jpg)
+![首页](/static/images/Index-Screenshot.jpg)
 
-<sup><center>首页</center></sup>
 
-![文章截图](/static/images/Post-Screenshot.jpg)
+![文章](/static/images/Post-Screenshot.jpg)
 
-<sup><center>文章</center></sup>
 
-![og-example.png](/static/images/og-example.png)
-
-<sup><center>自动生成Opengraph(OG)作为SEO图片</center></sup>
+![自动生成Opengraph(OG)作为SEO图片](/static/images/og-example.png)
 
 访问[`/og?title=这个博客是如何搭建的`](/og?title=这个博客是如何搭建的)也能看到这张卡片，通过文字生成图片，这里是用了`@Vercel/og`的[OG生成 Edge Function](https://vercel.com/docs/functions/edge-functions/og-image-generation)，当文章没有设置图片时，就会自动生成OG。
 
@@ -59,7 +54,7 @@ SEO信息如下：
 
 ## 部署
 
-可以直接`git clone`[我的博客](https://github.com/hxlog/prologue.dev)进行修改，也可以在[Vercel上一键Fork并部署](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fhxlog%2Fprologue.dev)。
+可以直接`git clone`[我的博客](https://github.com/moreanlog/prologue.dev)进行修改，也可以在[Vercel上一键Fork并部署](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmoreanlog%2Fprologue.dev)。
 
 理论上Next.js能部署在支持Node.js的平台上，但不是所有平台支持`next start`和`/og`的社交平台卡片生成，所以应该禁用图片优化，静态导出。
 
@@ -71,10 +66,10 @@ SEO信息如下：
 ---
 title: title
 description: description
-pubDate: 2022-11-13
+publishDate: 2022-11-13
 (required)
 
-updatedDate: 2023-07-02
+lastmod: 2023-07-02
 featured: true
 tags: ["tag1",tag2]
 image: /static/photos/06.jpg

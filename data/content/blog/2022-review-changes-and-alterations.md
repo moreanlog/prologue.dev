@@ -1,7 +1,7 @@
 ---
 title: 2022复盘：变化和改变
 tags: []
-pubDate: 2023-01-01
+publishDate: 2023-01-01
 description: 何去何从的身份认同，以及没有行动性的决策框架。
 ---
 

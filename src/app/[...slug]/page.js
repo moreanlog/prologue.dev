@@ -86,7 +86,7 @@ export default async function PagePage({ params }) {
       </article>
       <div className="col-span-2 mx-auto">
         <div className="sticky top-0 hidden xl:block pt-12">
-          <h3 className="text-zinc-600 dark:text-zinc-300 py-4">On this page</h3>
+          <p className="text-zinc-600 dark:text-zinc-300 py-4">On this page</p>
           {page.headings.map(heading => {
             return (
               <div key={heading.text}>

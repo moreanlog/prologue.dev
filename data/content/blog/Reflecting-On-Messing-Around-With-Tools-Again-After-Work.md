@@ -1,8 +1,7 @@
 ---
 title: 工作后反思折腾工具
-pubDate: 2023-11-10
+publishDate: 2023-11-10
 description: 没有设计就是最好的设计，好的工具是理所当然的存在。
-featured: false
 ---
 ## 前言
 

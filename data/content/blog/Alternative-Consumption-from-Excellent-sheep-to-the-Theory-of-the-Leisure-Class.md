@@ -1,6 +1,6 @@
 ---
 title: 另类消费：从优秀的绵羊到有闲阶级论
-pubDate: 2023-10-28
+publishDate: 2023-10-28
 description: 一边批判着消费主义和现代教育，却一边又作为既得利益者享受，多么讽刺！
 tags:
   - Sociology

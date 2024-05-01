@@ -3,8 +3,10 @@ import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import rehypeSlug from "rehype-slug";
-import rehypePrettyCode from "rehype-pretty-code";
+import rehypeShiki from '@shikijs/rehype'
 import readingTime from "reading-time";
+import rehypeFigure from "rehype-figure";
+
 
 /** @type {import('contentlayer/source-files').ComputedFields} */
 const computedFields = {
@@ -65,7 +67,7 @@ export const Page = defineDocumentType(() => ({
 export const Post = defineDocumentType(() => ({
   name: "Post",
   filePathPattern: `blog/**/*.md`,
-  contentType: "mdx",
+  contentType: "markdown",
   fields: {
     title: {
       type: "string",
@@ -74,11 +76,11 @@ export const Post = defineDocumentType(() => ({
     description: {
       type: "string",
     },
-    pubDate: {
+    publishDate: {
       type: "date",
       required: true,
     },
-    updatedDate: {
+    lastmod: {
       type: "date",
       required: false,
     },
@@ -117,12 +119,16 @@ export const Post = defineDocumentType(() => ({
 export default makeSource({
   contentDirPath: "./data/content",
   documentTypes: [Post, Page],
-  mdx: {
+  markdown: {
     remarkPlugins: [remarkGfm, remarkMath],
     rehypePlugins: [
-      [rehypePrettyCode, { theme: "github-dark-dimmed", keepBackground: true }],
+      [rehypeShiki,{themes: {
+        light: 'material-theme-lighter',
+        dark: 'material-theme-darker',
+      }}],
       rehypeKatex,
       rehypeSlug,
+      rehypeFigure
     ],
   },
 });

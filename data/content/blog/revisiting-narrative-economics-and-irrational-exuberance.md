@@ -2,7 +2,7 @@
 title: 重温叙事经济学和非理性繁荣
 tags:
   - Economics
-pubDate: 2023-4-12
+publishDate: 2023-4-12
 description: 叙事经济学和非理性繁荣阐述了现实中的经济学，叙事造就了非理性的繁荣。每个人都想在危机来临之前全身而退，但人总是侥幸却不敢承认自己做不到的事实。
 ---
 
@@ -20,7 +20,7 @@ description: 叙事经济学和非理性繁荣阐述了现实中的经济学，�
 
 Robert J. Shiller 的《叙事经济学》几乎没有阅读门槛，如果不是 lecturer 的推荐我是一定不会读这本看似畅销书的读物，后面会讲它的另一本书《非理性繁荣和金融危机》，这是在第二次阅读后写的。
 
-![market_crash.png](/static/images/market_crash.png)
+![非理性繁荣](/static/images/market_crash.png)
 
 历史说明大部分人不会在喜欢在风平浪静的市场中谈论“崩盘”，同理也没有人愿意在加密货币的牛市中讨论 FUD。
 
@@ -44,7 +44,7 @@ Robert J. Shiller 的《叙事经济学》几乎没有阅读门槛，如果不�
 
 ## 非理性繁荣
 
-![Real_Estate_Prices.jpg](/static/images/Real_Estate_Prices.jpg)
+![美国房地产价格泡沫只是近三十年的事情](/static/images/Real_Estate_Prices.jpg)
 
 相信看到这张图，也不需要任何回归、显著分析、相关性分析等，就能看出来美国房地产高企只是近 30 年的事情，是宽松的货币政策、按揭住房政策和放肆的市场监管导致的，建筑成本只会越来越低，可笑的是全球变暖会增加木材的年产量；如果用住宅数量/人口数量就知道总体房产数量总是过多的，只有大城市的稀缺房源会被追逐。
 
@@ -58,11 +58,10 @@ Robert J. Shiller 的《叙事经济学》几乎没有阅读门槛，如果不�
 
 现实是“这次不一样？”
 
-![Interest_rate_inversion.jpg](/static/images/Interest_rate_inversion.jpg)
+![短短一年内的剧烈加息导致利率倒挂。](/static/images/Interest_rate_inversion.jpg)
 
-短短一年内的剧烈加息导致利率倒挂。
 
-![Bank Tightening](/static/images/Bank_Tightening.jpg)
+![美国信贷紧缩](/static/images/Bank_Tightening.jpg)
 
 硅谷银行、第一共和银行、瑞士信贷因国债利率倒挂 + 挤兑 + 卖出长期债券 + 导致亏损，之后的银行债务紧缩。
 

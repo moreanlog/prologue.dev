@@ -6,14 +6,14 @@ import siteMetadata from "../../../data/sitemetadata"
 export default function Blog() 
 {
   const posts = allPosts.sort((a, b) => {
-    return compareDesc(new Date(a.pubDate), new Date(b.pubDate))
+    return compareDesc(new Date(a.publishDate), new Date(b.publishDate))
   })
 
   const pagination = {
     currentPage: 1,
-    totalPages: Math.ceil(posts.length / 5),
+    totalPages: Math.ceil(posts.length / 10),
   }
-  const initialDisplayPosts = posts.slice(0, 5)
+  const initialDisplayPosts = posts.slice(0, 10)
 
   return (
     <div>

@@ -2,8 +2,8 @@
 title: 文凭泡沫和大学排名
 tags:
   - Education
-pubDate: 2023-06-29
-updatedDate: 2023-07-02
+publishDate: 2023-06-29
+lastmod: 2023-07-02
 description: 大学排名作为大众媒介重构人们对大学的认知
 ---
 
@@ -23,8 +23,7 @@ description: 大学排名作为大众媒介重构人们对大学的认知
 
 这里想说的是，大学能教的往往都不一定符合现实，甚至在某种意识形态中折腾，而大学排名的标准非常符合沉迷各种假说的癖好：
 
-![UNSW QS Ranking](/static/images/UNSW_QS_Ranking.png)
-<sup>UNSW QS 2024 #=19</sup>
+![UNSW QS 2024 #=19](/static/images/UNSW_QS_Ranking.png)
 
 其中，学术声誉、雇主声誉、国际研究网络、就业成果、可持续发展都是无法被准确量化的，而引用次数、国际教师比例、国际学生比例来衡量一所学校只是国际化和多元化的意识形态偏好，唯一可能有参考意义的是师生比例，尽管有证据表明 k12 小班教育对成绩的积极影响，但对于高校影响不明。
 

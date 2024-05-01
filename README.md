@@ -22,7 +22,7 @@ Next.js13 + tailwindcss + contentlayer + MDX Blog
 
 ## Get Started
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fhxlog%2Fprologue.dev)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmoreanlog%2Fprologue.dev)
 
 ```
 npm install
@@ -40,10 +40,10 @@ Post frontmatter
 ---
 title: title
 description: description
-pubDate: 2022-11-13
+publishDate: 2022-11-13
 (required)
 
-updatedDate: 2023-07-02
+lastmod: 2023-07-02
 featured: true
 tags: ["tag1",tag2]
 image: /static/photos/06.jpg 

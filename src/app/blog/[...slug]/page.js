@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import { allPosts } from "contentlayer/generated";
 import "katex/dist/katex.min.css";
-import { MDXComponent } from "../../../components/mdxcomponent";
 import siteMetadata from "../../../../data/sitemetadata";
 import ScrollTopAndComment from "../../../components/scroll";
 import TableofContent from "../../../components/toc";
@@ -24,7 +23,7 @@ async function getPostFromParams(params) {
 
 async function getAdjacentPosts(post) {
   const sortedPosts = allPosts.sort(
-    (a, b) => new Date(a.pubDate) - new Date(b.pubDate)
+    (a, b) => new Date(a.publishDate) - new Date(b.publishDate)
   );
 
   const currentIndex = sortedPosts.findIndex((p) => p === post);
@@ -107,8 +106,8 @@ export default async function PostPage({ params }) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
-    datePublished: post.pubDate,
-    dateModified: post.updatedDate,
+    datePublished: post.publishDate,
+    dateModified: post.lastmod,
     headline: post.title,
     image:
       post.image == ""
@@ -131,11 +130,11 @@ export default async function PostPage({ params }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </section>
-      <div className="relative xl:grid xl:grid-cols-8 gap-8 mx-auto max-w-7xl">
-        <div className="col-span-6">
+      <div className="relative xl:grid xl:grid-cols-10 gap-8 mx-auto max-w-7xl">
+        <div className="col-span-8">
           <article className="py-8 prose mx-auto dark:prose-invert max-w-3xl">
             <div className="prose-sm select-none">
-              <time>{moment(post.pubDate).format("LL")}</time> ·{" "}
+              <time>{moment(post.publishDate).format("LL")}</time> ·{" "}
               {post.readingTime.words} words · {post.readingTime.text}
               {post.tags == "" || null
                 ? null
@@ -159,9 +158,8 @@ export default async function PostPage({ params }) {
             {post.image != "" ? (
               <Image
                 src={post.image}
-                width={1600}
-                height={400}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                width={1920}
+                height={1080}
                 alt={"featured image " + post.title}
                 className="inset-0 rounded-xl ring-1 ring-inset ring-zinc-900/10 my-2 drop-shadow-sm shadow-sm"
               />
@@ -169,12 +167,20 @@ export default async function PostPage({ params }) {
             {post.imageDesc != "" ? <p className="text-zinc-500 dark:text-zinc-300">{post.imageDesc}</p>: null}
 
             <hr/>
-            <MDXComponent code={post.body.code} />
-            <p className="prose-sm">
-              {post.updatedDate
-                ? `Last Updated: ${moment(post.updatedDate).format("LL")}`
+            <div dangerouslySetInnerHTML={{ __html: post.body.html }} />
+            <p className="prose-sm pt-4">
+              {post.lastmod
+                ? `Last Updated: ${moment(post.lastmod).format("LL")}`
                 : null}
             </p>
+            <Link
+              href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+              target="_blank"
+            >
+              <p className="mt-12 py-2 text-sm text-right sm:text-left text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-200 transition duration-400">
+                CC BY-NC-SA 4.0
+              </p>
+            </Link>
             <hr />
 
             <Comments />
@@ -223,11 +229,11 @@ export default async function PostPage({ params }) {
             <h2 className="font-semibold prose-h2 mt-6">About Author</h2>
             <Link href="/about">
             <Image
-              src="/static/favicons/avatar.png"
+              src={siteMetadata.avatar}
               alt="Avatar"
               width="100"
               height="100"
-              className="rounded-full max-w-md mx-auto shadow drop-shadow mt-6  hover:shadow-lg hover:ring-2 hover:ring-zinc-400 dark:ring-zinc-700 transition transform duration-500"
+              className="rounded-full max-w-md mx-auto drop-shadow mt-6 hover:shadow hover:ring-1 hover:ring-zinc-100 dark:ring-zinc-500 transition transform duration-500"
             />
             </Link>
             <p className="prose-lg text-center pt-4">{siteMetadata.author}</p>
@@ -272,14 +278,6 @@ export default async function PostPage({ params }) {
                 );
               })}
             </div>
-            <Link
-              href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
-              target="_blank"
-            >
-              <p className="mt-12 py-2 text-sm text-right sm:text-left text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-200 transition duration-400">
-                CC BY-NC-SA 4.0
-              </p>
-            </Link>
 
             <Link href="/">
               <p className="py-2 text-sm text-right sm:text-left text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-200 transition duration-400">

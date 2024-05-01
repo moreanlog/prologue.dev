@@ -2,7 +2,7 @@
 title: 从Next.js到Astro：更简单的网站搭建方案
 tags:
   - Web
-pubDate: 2023-03-07
+publishDate: 2023-03-07
 description: 一次不过不失的折腾。
 ---
 

@@ -95,8 +95,8 @@ const SearchBar = () => {
               {searchResults.map((result) => (
               
 
-                <div key={result.item.slug} className="">
-  <PostCard title={result.item.title} slug={result.item.slug} description={result.item.description} pubDate={result.item.pubDate} readingTime={result.item.readingTime.text} tags={result.item.tags} image={result.item.image} />
+                <div key={result.item.slug} className="leading-relaxed mx-auto max-w-sm">
+  <PostCard title={result.item.title} slug={result.item.slug} description={result.item.description} publishDate={result.item.publishDate} readingTime={result.item.readingTime.text} tags={result.item.tags} image={result.item.image} />
                 </div>
               ))}
             </div>

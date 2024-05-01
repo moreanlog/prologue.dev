@@ -1,7 +1,7 @@
 ---
 title: 肥尾效应：风险社会的游戏规则
 tags: []
-pubDate: 2022-11-30
+publishDate: 2022-11-30
 description: 分布是静态的，但事实是非线性且连续性的。
 ---
 

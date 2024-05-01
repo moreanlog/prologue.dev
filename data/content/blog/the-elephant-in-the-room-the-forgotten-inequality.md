@@ -2,7 +2,7 @@
 title: 房间里的大象：被淡忘的不平等
 tags:
   - Economics
-pubDate: 2022-11-21
+publishDate: 2022-11-21
 description: 它可能是灰犀牛，但预期是帕累托分布的肥尾效应。
 ---
 
@@ -63,7 +63,7 @@ $$
 \alpha = \alpha(A^K\beta)^{\frac{\alpha-1}{\alpha}}=\alpha(A^K \frac{S}{g})^{\frac{\alpha -1}{\alpha}}
 $$
 
-![Produduction-Utility-Function-Decreasing-Returns-to-Scale.jpg](/static/images/Produduction-Utility-Function-Decreasing-Returns-to-Scale.jpg)
+![生产边际效用递减](/static/images/Produduction-Utility-Function-Decreasing-Returns-to-Scale.jpg)
 
 教材都会将到达 steady state 的情况，是储蓄$S_t$等于投资$I_t$，净储蓄是净产出$Y_t$比例为$s$，使$S_t = sY_t$，增长的情况下，资本$K_t$和产出$Y_t$以固定速度$g$增长，得出：
 

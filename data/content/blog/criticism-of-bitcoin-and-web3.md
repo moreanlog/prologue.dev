@@ -1,7 +1,7 @@
 ---
 title: 批判比特币和Web3
-pubDate: 2022-07-25
-updatedDate: 2022-08-01
+publishDate: 2022-07-25
+lastmod: 2022-08-01
 tags: ["Crypto","Web3"]
 description: 对web3的审美和投资疲劳也许才是后现代投资组合的常态。
 ---
