@@ -15,6 +15,7 @@ description: 但愿十年后的某天，这些链接仍存活，与各位作者�
 
 [Rhizome](https://dongrentianyu.github.io/rhizome/) - 一世风尘，也只如雪泥打他人脚底经过
 
+[OrganWalk](https://organwalk.ink/) - 没有红色墨水的世界
 ## 说明
 
 如有意互换友链，可以在[Github使用markdown编辑](https://github.com/moreanlog/prologue.dev/edit/master/data/content/pages/links.md)添加然后Pull Request，也可以通过以下评论告知，若得知会尽快添加。
