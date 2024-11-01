@@ -1,6 +1,5 @@
 ---
 title: 消失的青年失业率：时间序列预测青年失业率
-featured: true
 tags: ["Economics", "Python"]
 publishDate: 2022-08-21
 image: /static/images/Unemployment-Rate-Forecasting.png

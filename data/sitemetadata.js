@@ -1,7 +1,7 @@
 const siteMetadata = {
   title: "Prologue 序章",
   author: "槐序",
-  authorDesc:"自我批判和反叛思考",
+  authorDesc:"想成为创作者",
   publishName: "Prologue",
   headerTitle: "What's past is prologue",
   description:
@@ -12,13 +12,11 @@ const siteMetadata = {
   siteRepo: "prologue.dev",
   repoid:"R_kgDOHl4HGg",
   categoryid: "DIC_kwDOHl4HGs4CP_Jc",
-  siteLogo: "/static/favicons/favicon.ico",
-  avatar: "/static/favicons/avatar2-square.jpg",
+  favicon: "/static/favicons/favicon.ico",
+  avatar: "/static/favicons/avatar.png",
   cover: "/static/favicons/cover.png",
   email: "author@prologue.dev",
-  github: "moreanlog",
-  twitter: "@huaixuOvO",
-  twitterid:"1507965040603074564",
+  github: "moreanlog"
 };
 
 module.exports = siteMetadata;

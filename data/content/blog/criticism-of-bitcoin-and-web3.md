@@ -2,7 +2,7 @@
 title: 批判比特币和Web3
 publishDate: 2022-07-25
 lastmod: 2022-08-01
-tags: ["Crypto","Web3"]
+tags: ["Crypto", "Web3"]
 description: 对web3的审美和投资疲劳也许才是后现代投资组合的常态。
 ---
 
@@ -114,6 +114,7 @@ enum Instruction {
 - `../AccountId32(0x1234...cdef)`指定了同一平行链的32-byte账户
 
 `MultiAsset`
+
 ```rust
 struct MultiAsset {
    id: AssetId,
@@ -270,6 +271,6 @@ Wood, G. (2021, September 6). XCM: The Cross-Consensus Message Format. Polkadot 
 
 ‌ 可能待补充：
 
-* [ ] 通证经济
-* [ ] 加密货币价值不恒等不等于没有价值，通缩机制的价值
-* [ ] 人为制造的稀缺，货币文明
+- [ ] 通证经济
+- [ ] 加密货币价值不恒等不等于没有价值，通缩机制的价值
+- [ ] 人为制造的稀缺，货币文明

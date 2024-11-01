@@ -1,7 +1,6 @@
 ---
 title: 为什么应该少抱怨社会
 image: /static/images/What-If-The-World.jpg
-featured: true
 imageDesc: 我们必须接受短暂的失望，但不能放弃拥有无限的希望。
 publishDate: 2023-11-07
 lastmod: 2024-01-28

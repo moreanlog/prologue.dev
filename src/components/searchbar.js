@@ -93,10 +93,18 @@ const SearchBar = () => {
           <>
             <div className="leading-relaxed py-4 ">
               {searchResults.map((result) => (
-              
-
-                <div key={result.item.slug} className="leading-relaxed mx-auto max-w-sm">
-  <PostCard title={result.item.title} slug={result.item.slug} description={result.item.description} publishDate={result.item.publishDate} readingTime={result.item.readingTime.text} tags={result.item.tags} image={result.item.image} />
+                <div
+                  key={result.item.slug}
+                  className="leading-relaxed mx-auto max-w-sm"
+                >
+                  <PostCard
+                    title={result.item.title}
+                    slug={result.item.slug}
+                    description={result.item.description}
+                    publishDate={result.item.publishDate}
+                    readingTime={result.item.readingTime.text}
+                    tags={result.item.tags}
+                  />
                 </div>
               ))}
             </div>

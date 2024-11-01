@@ -1,5 +1,5 @@
 ---
-title: 填坑：社会学基本概念
+title: 社会学基本概念
 publishDate: 2022-12-29
 tags: ["Sociology"]
 description: 查漏补缺。

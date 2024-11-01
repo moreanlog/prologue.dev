@@ -1,40 +1,61 @@
-import Rss from "rss";
+import { Feed } from "feed";
 import siteMetadata from "../../../data/sitemetadata";
 import { allPosts } from "contentlayer/generated";
 import { format } from "date-fns";
+import { compareDesc } from "date-fns";
 
 export async function GET() {
-  const feed = new Rss({
+  const feed = new Feed({
     title: siteMetadata.title,
-    description: siteMetadata.description,
-    generator: "Node-RSS feed generator",
-    feed_url: `${siteMetadata.siteUrl}/rss`,
-    site_url: siteMetadata.siteUrl,
-    image_url: `${siteMetadata.siteUrl}${siteMetadata.cover}`,
-    docs: siteMetadata.siteUrl,
+    description: `${siteMetadata.description}`,
+    id: `${siteMetadata.siteUrl}`,
+    link: `${siteMetadata.siteUrl}`,
+    favicon: `${siteMetadata.siteUrl}${siteMetadata.favicon}`,
     language: siteMetadata.language,
     copyright: "CC BY-NC-SA 4.0",
-    date: new Date(),
+    updated: new Date(),
+    image: `${siteMetadata.siteUrl}${siteMetadata.favicon}`,
+    generator: "Feed",
+    feedLinks: {
+      json: `${siteMetadata.siteUrl}/rss`,
+    },
+    author: {
+      name: "槐序",
+      email: "hello@prologue.dev",
+      link: `${siteMetadata.siteUrl}/about`,
+    },
   });
-
-  allPosts
+  const posts = allPosts.sort((a, b) => {
+    return compareDesc(new Date(a.publishDate), new Date(b.publishDate));
+  })
+  posts
     .filter((post) => post.draft === false)
     .forEach((post) => {
-      feed.item({
+      feed.addItem({
         title: post.title,
-        description: `<p>${post.description}</p> <hr> ${post.body.html} <hr> <a href=${siteMetadata.siteUrl}>${siteMetadata.title}</a> <p>${siteMetadata.description}</p>  <p>作者${siteMetadata.author}</p> <p>${format(new Date(post.publishDate), "yyyy MMMM do")}发布</p>`,
-        author: siteMetadata.author,
-        url: `${siteMetadata.siteUrl}${post.slug}`,
-        guid: `${siteMetadata.siteUrl}${post.slug}`,
-        date: post.publishDate,
-        categories: post.tags,
+        description: post.description,
+        content: `<p>${post.description}</p> <hr> ${post.body.html} <hr> <a href=${siteMetadata.siteUrl}>${siteMetadata.title}</a> <p>${siteMetadata.description}</p>  <p>作者${siteMetadata.author}</p> <p>${format(new Date(post.publishDate), "yyyy MMMM do")}发布</p>`,
+        author: {
+          name: "槐序",
+          email: "hello@prologue.dev",
+          link: `${siteMetadata.siteUrl}/about`,
+        },
+        id: `${siteMetadata.siteUrl}${post.slug}`,
+        link: `${siteMetadata.siteUrl}${post.slug}`,
+        date: new Date(post.publishDate),
+        image:
+          post.image == ""
+            ? `${siteMetadata.siteUrl}/og?title=${post.title}`
+            : `${siteMetadata.siteUrl}${post.image}`,
       });
     });
 
-  return new Response(feed.xml(), {
+  const rssFeed = feed.json1();
+
+  return new Response(rssFeed, {
     headers: {
-      "Content-Type": "application/xml",
-      "Cache-Control": "private,must-revalidate,max-age=604800", // must revalidate, and must be cached by the client for 7 days
+      "Content-Type": "application/json",
+      "Cache-Control": "private,must-revalidate,max-age=86400", // must revalidate, and must be cached by the client for 1 days
     },
   });
 }

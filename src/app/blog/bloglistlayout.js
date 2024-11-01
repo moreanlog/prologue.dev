@@ -5,12 +5,11 @@ import Pagination from "../../components/pagination";
 import { allPosts } from "contentlayer/generated";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { lazy } from 'react';
-
+import { lazy } from "react";
 
 const POSTS_PER_PAGE = 10;
 const tagsCount = {};
-const SearchBar = lazy(()=> import("../../components/searchbar"));
+const SearchBar = lazy(() => import("../../components/searchbar"));
 allPosts.forEach((item) => {
   item.tags.forEach((tag) => {
     tagsCount[tag] = (tagsCount[tag] || 0) + 1;

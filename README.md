@@ -1,6 +1,6 @@
 # Prologue Blog
 
-Next.js13 + tailwindcss + contentlayer + MDX Blog
+Next.js14 + tailwindcss + contentlayer + MDX Blog
 
 这是一个由Next.js生态拼凑而生的博客（笔者没有任何技术）。
 
@@ -59,7 +59,3 @@ title: title
 description: description
 (required)
 ```
-
-### 待完善
-
-- 文章的`categories`类别

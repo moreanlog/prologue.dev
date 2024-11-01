@@ -11,13 +11,11 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            lineHeight: "2rem",
+            lineHeight: "2.24rem",
             a: {
-              textDecoration: "none",
-              color: theme("colors.cyan.600"),
-              "font-weight": "500",
+              textDecoration: "underline",
+              "font-weight": "400",
               "&:hover": {
-                color: theme("colors.cyan.600"),
                 textDecoration: "underline",
               },
             },

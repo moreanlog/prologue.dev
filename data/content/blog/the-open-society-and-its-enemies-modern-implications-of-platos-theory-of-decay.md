@@ -1,5 +1,5 @@
 ---
-title: 《开放社会及其敌人》：柏拉图衰败论的现代意义
+title: 开放社会及其敌人：柏拉图衰败论的现代意义
 tags:
   - Sociology
 publishDate: 2022-11-14

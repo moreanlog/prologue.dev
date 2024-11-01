@@ -8,6 +8,8 @@ import Comments from "../../../components/comments";
 import Link from "next/link";
 import moment from "moment";
 import Image from "next/image";
+import NotByAI from "../../../components/notbyai";
+import AboutMe from "../../../components/aboutme"
 
 
 async function getPostFromParams(params) {
@@ -49,7 +51,8 @@ async function getAdjacentPosts(post) {
   return result;
 }
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata(props) {
+  const params = await props.params;
   const post = await getPostFromParams(params);
 
   if (!post) {
@@ -74,9 +77,6 @@ export async function generateMetadata({ params }) {
       card: "summary_large_image",
       title: post.title + " - " + siteMetadata.publishName,
       description: post.description,
-      creator: siteMetadata.twitter,
-      siteId: siteMetadata.twitterid,
-      creatorId: siteMetadata.twitterid,
       images: [
         post.image === null
           ? `/og?title=${post.title}`
@@ -92,16 +92,12 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function PostPage({ params }) {
+export default async function PostPage(props) {
+  const params = await props.params;
   const post = await getPostFromParams(params);
   if (!post || post.draft === true) {
     notFound();
   }
-  const postsNum = allPosts.length;
-  const totalWords = allPosts
-    .map((post) => post.readingTime.words)
-    .reduce((partialSum, a) => partialSum + a, 0)
-    .toLocaleString();
   const adjacentPosts = await getAdjacentPosts(post);
   const jsonLd = {
     "@context": "https://schema.org",
@@ -177,10 +173,11 @@ export default async function PostPage({ params }) {
               href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
               target="_blank"
             >
-              <p className="mt-12 py-2 text-sm text-right sm:text-left text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-200 transition duration-400">
+              <p className="mt-12 py-2 text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-200 transition duration-400">
                 CC BY-NC-SA 4.0
               </p>
             </Link>
+            <NotByAI />
             <hr />
 
             <Comments />
@@ -226,44 +223,7 @@ export default async function PostPage({ params }) {
         </div>
         <div className="col-span-2 mx-auto">
           <div>
-            <h2 className="font-semibold prose-h2 mt-6">About Author</h2>
-            <Link href="/about">
-            <Image
-              src={siteMetadata.avatar}
-              alt="Avatar"
-              width="100"
-              height="100"
-              className="rounded-full max-w-md mx-auto drop-shadow mt-6 hover:shadow hover:ring-1 hover:ring-zinc-100 dark:ring-zinc-500 transition transform duration-500"
-            />
-            </Link>
-            <p className="prose-lg text-center pt-4">{siteMetadata.author}</p>
-
-            <div className="grid grid-cols-2 divide-x dark:divide-zinc-700 py-4 mx-auto">
-              <div className="grid grid-rows-2  text-center px-2">
-                <Link href="/blog" className="hover:underline hover:underline-offset-2">
-                {postsNum}
-                </Link>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 pt-1">
-                  Posts
-                </p>
-                
-              </div>
-
-              <div className="grid grid-rows-2  text-center px-2">
-                {totalWords}
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 pt-1">
-                  Words
-                </p>
-              </div>
-            </div>
-            <p className="py-4 text-center mx-auto prose-p">
-              {siteMetadata.authorDesc}
-            </p>
-            <Link href="/about" passHref>
-              <p className="text-right text-sm pt-2 text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 hover:underline transition duration-400">
-                About More →
-              </p>
-            </Link>
+          <AboutMe />
           </div>
           <div className="sticky top-0 pt-10">
             <div className="hidden xl:block">

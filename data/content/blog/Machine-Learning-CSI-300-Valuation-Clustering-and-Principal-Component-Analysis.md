@@ -1,6 +1,5 @@
 ---
-title: 机器学习：沪深300估值聚类和主成分分析
-featured: true
+title: 机器学习丨沪深300估值聚类和主成分分析
 tags: []
 image: /static/images/Rplot_000300_prcomp.jpeg
 imageDesc: 主成分分析图

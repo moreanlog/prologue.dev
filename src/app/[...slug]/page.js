@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation"
 import { allPages } from "contentlayer/generated"
-import {MDXComponent} from "../../components/mdxcomponent"
+import { MDXComponent } from "../../components/mdxcomponent"
 import siteMetadata from "../../../data/sitemetadata"
 import TableofContent from "../../components/toc"
 import ScrollTopAndComment from "../../components/scroll"
@@ -20,9 +20,8 @@ async function getPageFromParams(params) {
   return page
 }
 
-export async function generateMetadata({
-  params,
-}) {
+export async function generateMetadata(props) {
+  const params = await props.params;
   const page = await getPageFromParams(params)
 
   if (!page) {
@@ -49,10 +48,7 @@ export async function generateMetadata({
       card: 'summary_large_image',
       title: page.title + " - " + siteMetadata.publishName,
       description: page.description,
-      creator: siteMetadata.twitter,
-      siteId: siteMetadata.twitterid,
-      creatorId: siteMetadata.twitterid,
-      images:  `/og?title=${page.title}`,
+      images: `/og?title=${page.title}`,
     },
   }
 }
@@ -63,7 +59,8 @@ export async function generateStaticParams() {
   }))
 }
 
-export default async function PagePage({ params }) {
+export default async function PagePage(props) {
+  const params = await props.params;
   const page = await getPageFromParams(params)
 
   if (!page) {

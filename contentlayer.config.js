@@ -1,4 +1,4 @@
-import { defineDocumentType, makeSource } from "contentlayer/source-files";
+import { defineDocumentType, makeSource } from "contentlayer2/source-files";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
@@ -8,7 +8,7 @@ import readingTime from "reading-time";
 import rehypeFigure from "rehype-figure";
 
 
-/** @type {import('contentlayer/source-files').ComputedFields} */
+/** @type {import('contentlayer2/source-files').ComputedFields} */
 const computedFields = {
   urlslug: {
     type: "string",
@@ -25,7 +25,7 @@ const computedFields = {
   },
   readingTime: {
     type: "json",
-    resolve: (doc) => readingTime(doc.body.raw, { wordsPerMinute: 500 }),
+    resolve: (doc) => readingTime(doc.body.raw),
   },
   headings: {
     type: "json",
